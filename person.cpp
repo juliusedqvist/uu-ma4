@@ -6,6 +6,7 @@ class Person{
 		Person(int);
 		int get();
 		void set(int);
+		int test();
 	private:
 		int age;
 	};
@@ -21,6 +22,10 @@ int Person::get(){
 void Person::set(int n){
 	age = n;
 	}
+
+int Person::test {
+    return 2;
+}
 
 
 extern "C"{
