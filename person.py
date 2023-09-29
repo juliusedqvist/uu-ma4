@@ -4,6 +4,10 @@ import ctypes
 lib = ctypes.cdll.LoadLibrary('./libperson.so')
 
 
+def fib():
+    return lib.Person_test()
+
+
 class Person(object):
     def __init__(self, age):
         lib.Person_new.argtypes = [ctypes.c_int]
@@ -19,9 +23,6 @@ class Person(object):
 
     def set(self, age):
         lib.Person_set(self.obj, age)
-
-    def fib(self):
-        return lib.Person_test()
 
     def __del__(self):
         return lib.Person_delete(self.obj)
