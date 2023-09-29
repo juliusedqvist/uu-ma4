@@ -23,9 +23,10 @@ void Person::set(int n){
 	age = n;
 	}
 
-int Person::test {
-    return 2;
-}
+int Person::test() {
+    int n = 2
+    return n;
+    }
 
 
 extern "C"{
