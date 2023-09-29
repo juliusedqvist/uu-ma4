@@ -24,7 +24,7 @@ void Person::set(int n){
 	}
 
 int Person::test() {
-    int n = 2
+    int n = 2;
     return n;
     }
 
