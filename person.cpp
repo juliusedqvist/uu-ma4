@@ -24,12 +24,12 @@ void Person::set(int n){
 	age = n;
 	}
 
-int Person::_fib(int n) {
+int Person::fib(int n) {
     return n++
     }
 
 int Person::test() {
-    return _fib(age);
+    return fib(age);
     }
 
 
