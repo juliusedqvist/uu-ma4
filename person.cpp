@@ -24,16 +24,16 @@ void Person::set(int n){
 	age = n;
 	}
 
-int Person::fib(int n) {
+int Person::_fib(int n) {
     if (n <= 1) {
         return n;
     } else {
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        return _fib(n - 1) + _fib(n - 2);
     }
 }
 
-int Person::test() {
-    return fib(age);
+int Person::fib() {
+    return _fib(age);
     }
 
 
@@ -43,7 +43,7 @@ extern "C"{
 	Person* Person_new(int n) {return new Person(n);}
 	int Person_get(Person* person) {return person->get();}
 	void Person_set(Person* person, int n) {person->set(n);}
-	int Person_test(Person* person) {return person->test();}
+	int Person_fib(Person* person) {return person->fib();}
 	void Person_delete(Person* person){
 		if (person){
 			delete person;
