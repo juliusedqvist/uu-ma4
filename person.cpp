@@ -6,10 +6,10 @@ class Person{
 		Person(int);
 		int get();
 		void set(int);
-		int test();
+		int fib();
 	private:
 		int age;
-		int fib(int);
+		int _fib(int);
 	};
  
 Person::Person(int n){
