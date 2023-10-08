@@ -17,18 +17,12 @@ def hyper_volume(r, d):
 
 
 def runner(n):
-
     return n
 
 
-# print(hyper_volume(1, 3))
-# print(monte_carlo_hyper(10000, 3))
-
-if __name__ == "__main__":
-
+def timer(func):
     start = pc()
-
-    n = [runner(monte_carlo_hyper(1000000, 11))] * 10
+    n = [runner(func(1000000, 11))] * 10
 
     with future.ProcessPoolExecutor() as ex:
         results = ex.map(runner, n)
@@ -39,7 +33,16 @@ if __name__ == "__main__":
     end = pc()
     print(f"Process took {round(end - start, 2)} seconds")
 
+
+# print(hyper_volume(1, 3))
+# print(monte_carlo_hyper(10000, 3))
+
+if __name__ == "__main__":
+
+    timer(monte_carlo_hyper)
     start2 = pc()
-    monte_carlo_hyper(10000000, 11)
+
+    # monte_carlo_hyper(10000000, 11)
+
     end2 = pc()
     print(f"Process took {round(end2 - start2, 2)} seconds")

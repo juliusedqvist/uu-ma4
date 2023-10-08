@@ -1,14 +1,61 @@
 #!/usr/bin/env python3
 
 from person import Person
+from numba import njit
+from time import perf_counter as pc
+import concurrent.futures as future
+
+
+def fib_python(n):
+    if n <= 1:
+        return n
+    else:
+        return fib_python(n - 1) + fib_python(n - 2)
+
+
+@njit
+def fib_numba(n):
+    if n <= 1:
+        return n
+    else:
+        return fib_numba(n - 1) + fib_numba(n - 2)
+
+
+
+def runner(n):
+    return n
 
 
 def main():
-	f = Person(5)
-	print(f.get())
-	f.set(7)
-	print(f.get())
-	print(f.fib())
+    f = Person(1)
+    tid_c = []
+    for i in range(30,45):
+        start = pc()
+        f.set(i)
+        f.fib()
+        end = pc()
+        tid_c.append(end-start)
+
+    tid_numba = []
+    for i in range(30, 45):
+        start = pc()
+        fib_numba(i)
+        end = pc()
+        tid_numba.append(end - start)
+
+    tid_python = []
+    for i in range(30, 45):
+        start = pc()
+        fib_python(i)
+        end = pc()
+        tid_python.append(end - start)
+
+    print(f"tid c: {tid_c}")
+    print(f"tid numba: {tid_numba}")
+    print(f"tid python: {tid_python}")
+
+
+
 
 if __name__ == '__main__':
-	main()
+    main()
