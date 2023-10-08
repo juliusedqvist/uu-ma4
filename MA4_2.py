@@ -29,7 +29,7 @@ def runner(n):
 def main():
     f = Person(1)
     tid_c = []
-    for i in range(30,45):
+    for i in range(30,40):
         start = pc()
         f.set(i)
         f.fib()
@@ -37,14 +37,14 @@ def main():
         tid_c.append(end-start)
 
     tid_numba = []
-    for i in range(30, 45):
+    for i in range(30, 40):
         start = pc()
         fib_numba(i)
         end = pc()
         tid_numba.append(end - start)
 
     tid_python = []
-    for i in range(30, 45):
+    for i in range(30, 40):
         start = pc()
         fib_python(i)
         end = pc()
