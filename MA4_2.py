@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# from person import Person
+from person import Person
 from numba import njit
 from time import perf_counter as pc
 
@@ -46,7 +46,7 @@ def main():
         end = pc()
         tid_python.append(end - start)
 
-    # print(f"tid c: {tid_c}")
+    print(f"tid c: {tid_c}")
     print(f"tid numba: {tid_numba}")
     print(f"tid python: {tid_python}")
 
